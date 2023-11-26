@@ -5,9 +5,12 @@ using UnityEngine.AI;
 
 public class AIActionMoveToObject : BaseAIAction
 {
-    public GameObject ObjToMoveTo;
-    public NavMeshAgent NavMeshAgent;
-    public Animator Animator;
+    [SerializeField]
+    private GameObject ObjToMoveTo;
+    [SerializeField]
+    private NavMeshAgent NavMeshAgent;
+    [SerializeField]
+    private Animator Animator;
 
     private void Awake()
     {

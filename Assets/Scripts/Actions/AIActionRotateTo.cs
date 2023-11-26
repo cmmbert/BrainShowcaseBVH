@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class AIActionRotateTo : BaseAIAction
 {
-    public GameObject ObjToTurn;
-    public GameObject ObjToLookAt;
-    public float RotationSpeed = 100;
-    public Animator Animator;
+    [SerializeField]
+    private GameObject ObjToTurn;
+    [SerializeField]
+    private GameObject ObjToLookAt;
+    [SerializeField]
+    private float RotationSpeed = 100;
+    [SerializeField]
+    private Animator Animator;
 
     public override void OnEntry()
     {

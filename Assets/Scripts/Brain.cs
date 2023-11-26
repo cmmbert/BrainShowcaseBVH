@@ -11,19 +11,13 @@ public class Brain : MonoBehaviour
         get { return _currentGoal; }
         set
         {
-            if(_currentGoal)
-                foreach (var goal in _currentGoal.Actions)
-                {
-                    goal.OnExit();
-                }
+            if (_currentGoal)
+                _currentGoal.OnExit();
 
             _currentGoal = value;
 
-            if(_currentGoal)
-                foreach (var goal in _currentGoal.Actions)
-                {
-                    goal.OnEntry();
-                }
+            if (_currentGoal)
+                _currentGoal.OnEntry();
         }
     }
 
@@ -33,11 +27,7 @@ public class Brain : MonoBehaviour
         //if (CurrentGoal && CurrentGoal.Completed()) Debug.Log(CurrentGoal.name + " completed");
         if (CurrentGoal != null)
         {
-            foreach (var goal in CurrentGoal.Actions)
-            {
-                goal.OnUpdate();
-            }
-
+            CurrentGoal.OnUpdate();
             if (CurrentGoal.Completed())
                 NewGoal();
         }

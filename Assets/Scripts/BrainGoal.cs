@@ -11,11 +11,16 @@ public class BrainGoal : MonoBehaviour
         public BaseAICondition Condition;
         public bool DesiredState = true;
     }
-    public string Name;
-    public List<ConditionExt> Conditions = new List<ConditionExt>();
-    public List<BaseAIAction> Actions = new List<BaseAIAction>();
-    public bool AddConditionsToCompletionConds = false;
-    public List<ConditionExt> CompletionConds = new List<ConditionExt>();
+    [SerializeField]
+    private string Name;
+    [SerializeField]
+    private List<ConditionExt> Conditions = new List<ConditionExt>();
+    [SerializeField]
+    private List<BaseAIAction> Actions = new List<BaseAIAction>();
+    [SerializeField]
+    private bool AddConditionsToCompletionConds = false;
+    [SerializeField]
+    private List<ConditionExt> CompletionConds = new List<ConditionExt>();
 
     private void Start()
     {
@@ -58,6 +63,30 @@ public class BrainGoal : MonoBehaviour
             }
         }
         return allCondsMet;
+    }
+
+    public void OnUpdate()
+    {
+        foreach (var action in Actions)
+        {
+            action.OnUpdate();
+        }
+    }
+
+    public void OnExit()
+    {
+        foreach (var action in Actions)
+        {
+            action.OnExit();
+        }
+    }
+
+    public void OnEntry()
+    {
+        foreach (var action in Actions)
+        {
+            action.OnEntry();
+        }
     }
 
 }

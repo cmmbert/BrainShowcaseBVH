@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class AIConditionIsLookingAt : BaseAICondition
 {
-    public GameObject ObjToCheck;
-    public GameObject ObjToLookAt;
+    [SerializeField]
+    private GameObject ObjToCheck;
+    [SerializeField]
+    private GameObject ObjToLookAt;
 
     [Range(0.5f, 1f)]
-    public float Accuracy = 0.8f;
+    [SerializeField]
+    private float Accuracy = 0.8f;
     // Update is called once per frame
     public override void OnUpdate()
     {
