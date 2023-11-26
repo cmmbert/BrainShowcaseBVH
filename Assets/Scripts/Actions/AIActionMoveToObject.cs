@@ -38,7 +38,7 @@ public class AIActionMoveToObject : BaseAIAction
     {
         base.OnExit();
         Animator.SetBool("isRunning", false);
-        NavMeshAgent.destination = gameObject.transform.position;
+        NavMeshAgent.ResetPath();
     }
 
 }
